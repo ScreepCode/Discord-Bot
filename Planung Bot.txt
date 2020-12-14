@@ -1,0 +1,40 @@
+Mute/Unban
+
+Kategorie fÃ¼r Serverteam 
+	Log vom Kicken/Bannen
+	Allgemeine Logs
+	Moderatoren
+
+Rollen:
+		
+		2. Youtube Playlist suchen -> !play #playlist [Name]
+			2.1 Play Befehl überarbeiten
+				2.1.0 Auf Anzahl der Argumente überprüfen
+				2.1.1 #playlist -> Youtube Playlist
+				2.1.2 soundcloud -> suche von SoundCloud
+				2.1.3 Spotify -> Spotify Playlist
+		
+		3. DJ/MusikRolle hinzufügen -> Rechte für Skip, Stop
+			3.1 Rolle erstellen
+			3.2 Rechte einstellen -> Entweder Rolle oder Hälfte der Leute die im Channel sind
+				3.3.1 Überprüfen ob die Person die Rolle hat
+				3.3.2 Wenn ja, ausführen, sonst Nachricht mit Counter
+		
+		4. Spotify Playlist abspielen
+			4.0 get Access Token
+			4.1 get Playlist -> https://developer.spotify.com/console/get-search-item/?q=tania+bowra&type=artist
+				4.1.1 API Anfrage mit Playlist Name
+				4.1.2 Verarbeiten in JSON
+				4.1.3 ID auslesen
+			4.2 get Tracks -> https://developer.spotify.com/console/get-playlist-tracks/?playlist_id=21THa8j9TaSGuXYNBU5tsC&market=DE&fields=&limit=&offset=
+				4.2.1 API Anfrage mit vorheriger ID
+				4.2.2 Verarbeiten in JSON
+				4.2.3 Tracknamen auslesen
+				4.2.4 Tracknamen in Array Speichern
+			
+			4.3 Add to Playlist from Youtube Search
+			
+		5. Log für Serverteam
+			5.1 Kick/Ban Log
+		
+		8. Mute/Unmute 
