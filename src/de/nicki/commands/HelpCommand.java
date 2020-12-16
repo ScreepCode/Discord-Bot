@@ -18,10 +18,10 @@ public class HelpCommand implements ServerCommand{
 			builder.setTitle("Hier findest du Hilfe:");
 			builder.setDescription(""
 					+ "__**Allgemeine Commands**__\n"
-					+ "!clear [Anzahl] -> Um Nachrichten zu lˆschen (Nur wenn du die Rechte hast)\n"
+					+ "!clear [Anzahl] -> Um Nachrichten zu l√∂schen (Nur wenn du die Rechte hast)\n"
 					+ "!hug -> Um Aufmerksamkeit zu bekommen\n"
 					+ "!ping -> Um die Antwortzeit des Bots zu erfahren\n\n"
-					+ "__**Musikcommands - Kann noch zu Fehlern f¸hren!**__\n"
+					+ "__**Musikcommands - Kann noch zu Fehlern f√ºhren!**__\n"
 					+ "!play [Name oder Quelle] -> Um ein Lied zu starten\n"
 					+ "!stop -> Um das Lied zu stoppen und den Bot disconnecten\n"
 					+ "!pause -> Um das Lied zu pausieren\n"
@@ -30,7 +30,7 @@ public class HelpCommand implements ServerCommand{
 					+ "!seekto [ss] oder [mm:ss] oder[hh:mm:ss] -> Springt zur Angegeben Stelle\n"
 					+ "!queue -> Listet Befehle die mit Queue funktionieren\n"
 					+ "!lyrics [Lied] -> Suchen eines Songtextes");
-			builder.setFooter("Benutze den Pr‰fix ! um Commands zu benutzen");
+			builder.setFooter("Benutze den Pr√§fix ! um Commands zu benutzen");
 			builder.setColor(Color.decode("#00b5cc"));
 			channel.sendMessage(builder.build()).queue();
     	

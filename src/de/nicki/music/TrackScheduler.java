@@ -42,7 +42,7 @@ public class TrackScheduler extends AudioEventAdapter{
 		EmbedBuilder builder = new EmbedBuilder();
 		builder.setColor(Color.decode("#00e640"));
 		info = track.getInfo();
-		builder.setDescription("Jetzt läuft: " + info.title);
+		builder.setDescription("Jetzt lÃ¤uft: " + info.title);
 		
 		long sekunden = info.length/1000;
 		long minuten = sekunden/60;
@@ -52,7 +52,7 @@ public class TrackScheduler extends AudioEventAdapter{
 		
 		String url = info.uri;
 		builder.addField(info.author, "[" + info.title + "](" + url + ")", false);
-		builder.addField("Länge " ,info.isStream? ":red_circle: Stream" : (stunden>0? stunden+"h ": "") + minuten + "min " + sekunden + "s",true);
+		builder.addField("LÃ¤nge " ,info.isStream? ":red_circle: Stream" : (stunden>0? stunden+"h ": "") + minuten + "min " + sekunden + "s",true);
 		
 		if(url.startsWith("https://www.youtube.com/watch?v=")) {
 			String videoID = url.replace("https://www.youtube.com/watch?v=", "");

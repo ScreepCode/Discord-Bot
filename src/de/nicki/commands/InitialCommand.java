@@ -22,7 +22,7 @@ public class InitialCommand implements ServerCommand{
 		Guild guild = jda.getGuildById(message.getContentDisplay().split(" ")[1]);
 		
 		if(!m.isOwner()) {
-			channel.sendMessage("`Du hast nicht die nötigen Rechte um diesen Command auszuführen`").queue();
+			channel.sendMessage("`Du hast nicht die nÃ¶tigen Rechte um diesen Command auszufÃ¼hren`").queue();
 			return;
 		}
 		
@@ -47,11 +47,11 @@ public class InitialCommand implements ServerCommand{
 		}
 		
 		for(int i = 0; i < essentialChannelNames.length; i++) {
-			Category cat = jda.getCategoriesByName("Textkanäle", true).get(0);
+			Category cat = jda.getCategoriesByName("TextkanÃ¤le", true).get(0);
 			cat.createTextChannel(essentialChannelNames[i]).queue();
 		}
 		for(int i = 0; i < additionalChannelNames.length; i++) {
-			Category cat = jda.getCategoriesByName("Textkanäle", true).get(0);
+			Category cat = jda.getCategoriesByName("TextkanÃ¤le", true).get(0);
 			cat.createTextChannel(additionalChannelNames[i]).queue();
 		}
 	}

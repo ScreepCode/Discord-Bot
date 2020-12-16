@@ -8,17 +8,17 @@ Kategorie f√ºr Serverteam
 Rollen:
 		
 		2. Youtube Playlist suchen -> !play #playlist [Name]
-			2.1 Play Befehl ¸berarbeiten
-				2.1.0 Auf Anzahl der Argumente ¸berpr¸fen
+			2.1 Play Befehl √ºberarbeiten
+				2.1.0 Auf Anzahl der Argumente √ºberpr√ºfen
 				2.1.1 #playlist -> Youtube Playlist
 				2.1.2 soundcloud -> suche von SoundCloud
 				2.1.3 Spotify -> Spotify Playlist
 		
-		3. DJ/MusikRolle hinzuf¸gen -> Rechte f¸r Skip, Stop
+		3. DJ/MusikRolle hinzuf√ºgen -> Rechte f√ºr Skip, Stop
 			3.1 Rolle erstellen
-			3.2 Rechte einstellen -> Entweder Rolle oder H‰lfte der Leute die im Channel sind
-				3.3.1 ‹berpr¸fen ob die Person die Rolle hat
-				3.3.2 Wenn ja, ausf¸hren, sonst Nachricht mit Counter
+			3.2 Rechte einstellen -> Entweder Rolle oder H√§lfte der Leute die im Channel sind
+				3.3.1 √úberpr√ºfen ob die Person die Rolle hat
+				3.3.2 Wenn ja, ausf√ºhren, sonst Nachricht mit Counter
 		
 		4. Spotify Playlist abspielen
 			4.0 get Access Token
@@ -34,7 +34,7 @@ Rollen:
 			
 			4.3 Add to Playlist from Youtube Search
 			
-		5. Log f¸r Serverteam
+		5. Log f√ºr Serverteam
 			5.1 Kick/Ban Log
 		
 		8. Mute/Unmute 

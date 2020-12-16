@@ -23,7 +23,7 @@ public class SkipCommand implements ServerCommand {
 		else {
 			EmbedBuilder builder = new EmbedBuilder();
 			builder.setTitle("Es ist der Letzte Song der Queue ;)");
-			builder.setFooter("Wenn du dennoch dieses Lied beenden möchtest nutze !stop");
+			builder.setFooter("Wenn du dennoch dieses Lied beenden mÃ¶chtest nutze !stop");
 			channel.sendMessage(builder.build()).queue();
 		}
 		

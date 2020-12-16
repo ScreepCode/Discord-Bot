@@ -47,7 +47,7 @@ public class SeekCommand implements ServerCommand{
 		}
 		else {
 			EmbedBuilder builder = new EmbedBuilder();
-			builder.setDescription("Du kannst nicht über das Songende hinausspulen");
+			builder.setDescription("Du kannst nicht Ã¼ber das Songende hinausspulen");
 			builder.setColor(Color.decode("#FF0000"));
 			channel.sendMessage(builder.build()).queue();
 		}

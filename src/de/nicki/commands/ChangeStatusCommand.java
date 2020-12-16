@@ -18,7 +18,7 @@ public class ChangeStatusCommand implements ServerCommand{
 		//!changestatus <xyz>
 		
 		if(!m.hasPermission(Permission.ADMINISTRATOR)) {
-			channel.sendMessage("`Du hast nicht die nötigen Rechte um diesen Command auszuführen`").queue();
+			channel.sendMessage("`Du hast nicht die nÃ¶tigen Rechte um diesen Command auszufÃ¼hren`").queue();
 			return;
 		}
 		

@@ -10,7 +10,7 @@ public class HugCommand implements ServerCommand {
 	public void performCommand(Member m, TextChannel channel, Message message) {
 		
 		if(m.getIdLong() != 561206675416023041l) {
-			channel.sendMessage("Fühle dich Umarmt ^^").queue();
+			channel.sendMessage("FÃ¼hle dich Umarmt ^^").queue();
 		}
 		else {
 			channel.sendMessage("Jeder wird umarmt, nur du nicht xD").queue();

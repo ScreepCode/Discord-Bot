@@ -48,7 +48,7 @@ public class PlayCommand implements ServerCommand{
 //						url = "scsearch: " + url;
 					}
 					EmbedBuilder builder = new EmbedBuilder();
-					builder.setTitle("Song wurde hinzugefügt");
+					builder.setTitle("Song wurde hinzugefÃ¼gt");
 					channel.sendMessage(builder.build()).queue();
 					apm.loadItem(url, new AudioLoadResult(controller, url));
 					

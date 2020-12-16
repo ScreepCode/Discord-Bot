@@ -53,7 +53,7 @@ public class QueueCommands implements ServerCommand {
 			// Leert die Queue
 			if(args[1].equals("clear")) {
 				EmbedBuilder builder = new EmbedBuilder();
-				builder.setTitle(queue.getQueueList().size()+" Elemente aus der Queue gelöscht");
+				builder.setTitle(queue.getQueueList().size()+" Elemente aus der Queue gelÃ¶scht");
 				queue.getQueueList().clear();
 				channel.sendMessage(builder.build()).queue();
 			}
