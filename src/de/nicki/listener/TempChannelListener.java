@@ -10,7 +10,7 @@ public class TempChannelListener {
 	
 	public static void deleteChannels() {
 		
-		for (VoiceChannel channel : jda.getCategoriesByName("Administration", true).get(0).getVoiceChannels()) {
+		for (VoiceChannel channel : jda.getCategoriesByName("Laberecke", true).get(0).getVoiceChannels()) {
 			
 			if(channel.getName().contains("🕑")) {
 				if(channel.getMembers().isEmpty()) {
