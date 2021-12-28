@@ -1,8 +1,11 @@
 package de.nicki.listener;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.nicki.core.Mainclass;
+import de.nicki.core.SQLite;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.VoiceChannel;
@@ -19,14 +22,6 @@ public class VoiceListener extends ListenerAdapter {
 	
 	public VoiceListener() {
 		this.tempchannels = new ArrayList<>();
-
-		this.tmpChannelList = new ArrayList<>();
-		tmpChannelList.add(785185482388668436l); //Tisch für 2
-		tmpChannelList.add(785239198231166996l); //Tisch für 3
-		tmpChannelList.add(785185525320384562l); //Tisch für 4
-		tmpChannelList.add(785220857873694740l); //Among Us
-		tmpChannelList.add(788873336246501459l); //Technik
-		tmpChannelList.add(785221024899006475l); //Minecraft
 	}
 	
 	@Override
@@ -47,21 +42,30 @@ public class VoiceListener extends ListenerAdapter {
 	
 	public void onJoin(VoiceChannel joined, Member memb, Guild guild) {
 
-		if(tmpChannelList.contains(joined.getIdLong())){
-			VoiceChannel nvc = joined.createCopy()
-				.setName("🕑" + joined.getName())
-				.setBitrate(joined.getBitrate())
-				.setUserlimit(joined.getUserLimit())
-				.setPosition(joined.getPosition())
-				.complete();
-			if (joined.getParent() != null){
-				nvc.getManager().setParent(joined.getParent()).queue();
+		ResultSet set = SQLite.onQuery("SELECT channelid FROM tmpchannel WHERE guildid = " + guild.getIdLong());
+		try {
+			if(set.next()) {
+				long channelID = set.getLong("channelid");
+
+				if(channelID == joined.getIdLong()){
+					VoiceChannel nvc = joined.createCopy()
+						.setName("🕑" + joined.getName())
+						.setBitrate(joined.getBitrate())
+						.setUserlimit(joined.getUserLimit())
+						.setPosition(joined.getPosition())
+						.complete();
+					if (joined.getParent() != null){
+						nvc.getManager().setParent(joined.getParent()).queue();
+					}
+					guild.moveVoiceMember(memb, nvc).queue();
+					this.tempchannels.add(nvc.getIdLong());
+				}
 			}
-			// guild.modifyVoiceChannelPositions().selectPosition(nvc).moveTo(joined.getPosition() + 1).queue();
-			guild.moveVoiceMember(memb, nvc).queue();
-			this.tempchannels.add(nvc.getIdLong());
 		}
-	}
+		catch (Exception e) {
+            Mainclass.INSTANCE.logMan.errorLog("VoiceListener.onJoin()", e);
+        }
+	}	
 	
 	public void onLeave(VoiceChannel channel) {
 		

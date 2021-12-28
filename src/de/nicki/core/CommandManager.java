@@ -30,7 +30,7 @@ public class CommandManager {
 		this.commands.put("changestatus", new ChangeStatusCommand());
 		// this.commands.put("init", new InitialCommand());
 		// this.commands.put("au", new AmongUsCommand());
-
+		this.commands.put("addacastc", new AddACasTmpChannel());
 		
 		
 		//Musikfeature
