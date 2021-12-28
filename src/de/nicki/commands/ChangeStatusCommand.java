@@ -2,11 +2,12 @@ package de.nicki.commands;
 
 import de.nicki.core.Mainclass;
 import net.dv8tion.jda.api.JDA;
-import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.TextChannel;
+
+import de.nicki.core.Secrets;
 
 public class ChangeStatusCommand implements ServerCommand{
 	
@@ -15,9 +16,7 @@ public class ChangeStatusCommand implements ServerCommand{
 	@Override
 	public void performCommand(Member m, TextChannel channel, Message message) {
 		
-		//!changestatus <xyz>
-		
-		if(!m.hasPermission(Permission.ADMINISTRATOR)) {
+		if(Secrets.BotOwnerID() != m.getIdLong()) {
 			channel.sendMessage("`Du hast nicht die nötigen Rechte um diesen Command auszuführen`").queue();
 			return;
 		}
