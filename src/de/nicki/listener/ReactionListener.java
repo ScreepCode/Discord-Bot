@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 
 import de.nicki.core.Mainclass;
 import de.nicki.core.SQLite;
+import de.nicki.core.Secrets;
 import net.dv8tion.jda.api.entities.ChannelType;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.events.message.react.MessageReactionAddEvent;
@@ -14,82 +15,97 @@ public class ReactionListener extends ListenerAdapter{
 
 	@Override
 	public void onMessageReactionAdd(MessageReactionAddEvent event) {
-		
-		if(event.getMessageIdLong() == 785214654263066625l || event.getMessageIdLong() == 785234651462893588l) {
-			
+
+		if(event.getUserIdLong() != Secrets.BotID()) {
 			if(event.getChannelType() == ChannelType.TEXT) {
-//				System.out.println(event.getUserIdLong());
-				if(event.getUserIdLong() != 673672296296218624l) {
-					
-					long guildid = event.getGuild().getIdLong();
-					long channelid = event.getChannel().getIdLong();
-					long messageid = event.getMessageIdLong();
-					String emote = "";
-					
-					
-					if(event.getReactionEmote().isEmoji()) {
-						emote = event.getReactionEmote().getEmoji();
+
+				ResultSet setPre = SQLite.onQuery("SELECT messageid FROM reactroles WHERE guildid = " + event.getGuild().getIdLong());
+				try {
+					if(setPre.next()) {
+						long messIdDB = setPre.getLong("messageid");
+
+						if(messIdDB == event.getMessageIdLong()){
+								
+							long guildid = event.getGuild().getIdLong();
+							long channelid = event.getChannel().getIdLong();
+							long messageid = event.getMessageIdLong();
+							String emote = "";
+							
+							
+							if(event.getReactionEmote().isEmoji()) {
+								emote = event.getReactionEmote().getEmoji();
+							}
+							else {
+								emote = event.getReactionEmote().getId();
+							}
+							
+							ResultSet set = SQLite.onQuery("SELECT rollenid FROM reactroles WHERE guildid = " + guildid + " AND channelid = " + channelid + " AND messageid = " + messageid + " AND emote = '" + emote + "'");
+							
+							try {
+														
+								if(set.next()) {
+									long rollenid = set.getLong("rollenID");
+									Guild guild = event.getGuild();
+									guild.addRoleToMember(event.getUserIdLong(), guild.getRoleById(rollenid)).complete();
+								}
+							
+							} catch (Exception e) {
+								Mainclass.INSTANCE.getLogMan().errorLog("ReactionListener.onMessageReactionAdd()", e);
+							}			
+						}	
 					}
-					else {
-						emote = event.getReactionEmote().getId();
-					}
-					
-					ResultSet set = SQLite.onQuery("SELECT rollenid FROM reactroles WHERE guildid = " + guildid + " AND channelid = " + channelid + " AND messageid = " + messageid + " AND emote = '" + emote + "'");
-					
-					try {
-												
-						if(set.next()) {
-							long rollenid = set.getLong("rollenID");
-							Guild guild = event.getGuild();
-							guild.addRoleToMember(event.getUserIdLong(), guild.getRoleById(rollenid)).complete();
-						}
-					
-					} catch (Exception e) {
-						Mainclass.INSTANCE.getLogMan().errorLog("ReactionListener.onMessageReactionAdd()", e);
-					}			
 				}
-			}	
-		}
-		
+				catch (Exception e) {
+					Mainclass.INSTANCE.getLogMan().errorLog("ReactionListener.onMessageReactionAdd()", e);
+				}
+			}
+		}	
 	}
 	
 	@Override
 	public void onMessageReactionRemove(MessageReactionRemoveEvent event) {
 		
-		if(event.getMessageIdLong() == 785214654263066625l || event.getMessageIdLong() == 785234651462893588l) {
-			
+		if(event.getUserIdLong() != Secrets.BotID()) {
 			if(event.getChannelType() == ChannelType.TEXT) {
-//				System.out.println(event.getUserIdLong());
-				if(event.getUserIdLong() != 673672296296218624l) {
-					
-					long guildid = event.getGuild().getIdLong();
-					long channelid = event.getChannel().getIdLong();
-					long messageid = event.getMessageIdLong();
-					String emote = "";
-					
-					if(event.getReactionEmote().isEmoji()) {
-						emote = event.getReactionEmote().getEmoji();
-					}
-					else {
-						emote = event.getReactionEmote().getId();
-					}
 
-					ResultSet set = SQLite.onQuery("SELECT rollenid FROM reactroles WHERE guildid = " + guildid + " AND channelid = " + channelid + " AND messageid = " + messageid + " AND emote = '" + emote + "'");
+				ResultSet setPre = SQLite.onQuery("SELECT messageid FROM reactroles WHERE guildid = " + event.getGuild().getIdLong());
+				try {
+					if(setPre.next()) {
+						long messIdDB = setPre.getLong("messageid");
+
+						if(messIdDB == event.getMessageIdLong()){
 					
-					try {
-						if(set.next()) {
-							long rollenid = set.getLong("rollenid");						
-							Guild guild = event.getGuild();
-							guild.removeRoleFromMember(event.getUserIdLong(), guild.getRoleById(rollenid)).complete();
+							long guildid = event.getGuild().getIdLong();
+							long channelid = event.getChannel().getIdLong();
+							long messageid = event.getMessageIdLong();
+							String emote = "";
 							
+							if(event.getReactionEmote().isEmoji()) {
+								emote = event.getReactionEmote().getEmoji();
+							}
+							else {
+								emote = event.getReactionEmote().getId();
+							}
+
+							ResultSet set = SQLite.onQuery("SELECT rollenid FROM reactroles WHERE guildid = " + guildid + " AND channelid = " + channelid + " AND messageid = " + messageid + " AND emote = '" + emote + "'");
+							
+							try {
+								if(set.next()) {
+									long rollenid = set.getLong("rollenid");						
+									Guild guild = event.getGuild();
+									guild.removeRoleFromMember(event.getUserIdLong(), guild.getRoleById(rollenid)).complete();
+									
+								}
+							} catch (Exception e) {
+								Mainclass.INSTANCE.getLogMan().errorLog("ReactionListener.onMessageReactionRemove()", e);
+							}
 						}
-					} catch (Exception e) {
-						Mainclass.INSTANCE.getLogMan().errorLog("ReactionListener.onMessageReactionRemove()", e);
 					}
 				}
-			}	
+				catch (Exception e) {
+					Mainclass.INSTANCE.getLogMan().errorLog("ReactionListener.onMessageReactionAdd()", e);
+				}	
+			}
 		}
-		
-		
 	}	
 }
