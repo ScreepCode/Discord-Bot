@@ -28,7 +28,7 @@ public class QueueCommands implements ServerCommand {
 			builder.setDescription(""
 					+ "!queue list -> Listet Songs in der Queue auf\n"
 					+ "!queue clear -> Leert die Warteschlange");
-			channel.sendMessage(builder.build()).queue();
+			channel.sendMessageEmbeds(builder.build()).queue();
 			
 		}
 		
@@ -47,7 +47,7 @@ public class QueueCommands implements ServerCommand {
 					AudioTrackInfo info = track.getInfo();
 					builder.addField(i+1 +". " + info.author, "[" + info.title + "]", false);
 				}
-				channel.sendMessage(builder.build()).queue();
+				channel.sendMessageEmbeds(builder.build()).queue();
 			}
 			
 			// Leert die Queue
@@ -55,7 +55,7 @@ public class QueueCommands implements ServerCommand {
 				EmbedBuilder builder = new EmbedBuilder();
 				builder.setTitle(queue.getQueueList().size()+" Elemente aus der Queue gelöscht");
 				queue.getQueueList().clear();
-				channel.sendMessage(builder.build()).queue();
+				channel.sendMessageEmbeds(builder.build()).queue();
 			}
 		
 		}

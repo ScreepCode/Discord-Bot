@@ -32,7 +32,7 @@ public class HelpCommand implements ServerCommand{
 					+ "!lyrics [Lied] -> Suchen eines Songtextes");
 			builder.setFooter("Benutze den Präfix ! um Commands zu benutzen");
 			builder.setColor(Color.decode("#00b5cc"));
-			channel.sendMessage(builder.build()).queue();
+			channel.sendMessageEmbeds(builder.build()).queue();
     	
         }
     }

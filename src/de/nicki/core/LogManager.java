@@ -24,7 +24,7 @@ public class LogManager{
 		builder.setDescription("Fehlerart: " + e.toString() + "\n\n" + errorString);
 		builder.setColor(Color.red);
 		
-		jda.getTextChannelsByName("error_log", true).get(0).sendMessage(builder.build()).queue();
+		jda.getTextChannelsByName("error_log", true).get(0).sendMessageEmbeds(builder.build()).queue();
 		
 	}
 	

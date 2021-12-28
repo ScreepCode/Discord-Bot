@@ -49,7 +49,7 @@ public class PlayCommand implements ServerCommand{
 					}
 					EmbedBuilder builder = new EmbedBuilder();
 					builder.setTitle("Song wurde hinzugefügt");
-					channel.sendMessage(builder.build()).queue();
+					channel.sendMessageEmbeds(builder.build()).queue();
 					apm.loadItem(url, new AudioLoadResult(controller, url));
 					
 					
@@ -58,7 +58,7 @@ public class PlayCommand implements ServerCommand{
 					EmbedBuilder builder = new EmbedBuilder();
 					builder.setDescription("Betrete zuerst einen VoiceChat");
 					builder.setColor(Color.decode("#FF0000"));
-					channel.sendMessage(builder.build()).queue();
+					channel.sendMessageEmbeds(builder.build()).queue();
 				}
 			}
 			else {	//Wenn der Nutzer keinen VoiceStatus hat
@@ -66,7 +66,7 @@ public class PlayCommand implements ServerCommand{
 				builder.setTitle("Fehler beim benutzen des Musikfeatures");
 				builder.setDescription("Betrete zuerst einen VoiceChat");
 				builder.setColor(Color.decode("#FF0000"));
-				channel.sendMessage(builder.build()).queue();
+				channel.sendMessageEmbeds(builder.build()).queue();
 			}
 		}
 		else {	//Wenn der Nutzer keine Quelle angibt
@@ -74,7 +74,7 @@ public class PlayCommand implements ServerCommand{
 			builder.setTitle("Fehler beim benutzen des Musikfeatures");
 			builder.setDescription("Bitte benutze !play [Quelle]");
 			builder.setColor(Color.decode("#FF0000"));
-			channel.sendMessage(builder.build()).queue();
+			channel.sendMessageEmbeds(builder.build()).queue();
 		}
 		
 	}

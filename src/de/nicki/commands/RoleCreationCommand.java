@@ -43,7 +43,7 @@ public class RoleCreationCommand implements ServerCommand{
 					EmbedBuilder embed = new EmbedBuilder();
 					embed.setDescription("Rolle " + roleName + " erstellt.");
 					embed.setColor(color);
-					channel.sendMessage(embed.build()).queue();
+					channel.sendMessageEmbeds(embed.build()).queue();
 				});
 				
 			}
@@ -51,7 +51,7 @@ public class RoleCreationCommand implements ServerCommand{
 		else {
 			EmbedBuilder builder = new EmbedBuilder();
 			builder.setDescription("Bist du doof? !createrole <Name> <#Farbe>");
-			channel.sendMessage(builder.build()).queue();
+			channel.sendMessageEmbeds(builder.build()).queue();
 		}
 			
 		

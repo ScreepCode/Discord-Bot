@@ -40,7 +40,7 @@ public class MusikUtil {
 				if((guild = Mainclass.jda.getGuildById(guildid)) != null) {
 					TextChannel channel;
 					if((channel = guild.getTextChannelById(channelid)) != null) {
-						channel.sendMessage(builder.build()).queue();
+						channel.sendMessageEmbeds(builder.build()).queue();
 					}
 				}
 			}

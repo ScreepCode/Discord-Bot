@@ -42,7 +42,7 @@ public class LyricsCommand implements ServerCommand {
 			for(int j=0;j<=teile;j++) {
 				builder.addField("",lyricteile[j], false);
 			}
-			channel.sendMessage(builder.build()).queue();
+			channel.sendMessageEmbeds(builder.build()).queue();
 			
 				
 		} catch (Exception e) {

@@ -40,7 +40,7 @@ public class UmfrageCommand implements ServerCommand{
 		message.delete().queue();
 
 		
-		tc.sendMessage(builder.build()).queue(add ->{
+		tc.sendMessageEmbeds(builder.build()).queue(add ->{
 			add.addReaction("U+1F7E9").queue();
 			add.addReaction("U+1F7E5").queue();
 		});

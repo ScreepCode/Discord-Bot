@@ -71,7 +71,7 @@ public class TrackScheduler extends AudioEventAdapter{
 						TextChannel channel;
 						if((channel = guild.getTextChannelById(channelid)) != null) {
 							channel.sendTyping().queue();
-							channel.sendFile(file, "thumpnail.png").embed(builder.build()).queue();;
+							channel.sendFile(file, "thumpnail.png").setEmbeds(builder.build()).queue();
 						}	
 					}
 				}catch(SQLException e) { 

@@ -21,7 +21,7 @@ public class PreviewCommand implements ServerCommand{
 		builder.setColor(Color.decode("#89CFF0"));
 		
 		message.delete().queue();
-		channel.sendMessage(builder.build()).queue();
+		channel.sendMessageEmbeds(builder.build()).queue();
 	}
 
 }

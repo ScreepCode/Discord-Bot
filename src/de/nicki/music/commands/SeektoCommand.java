@@ -39,13 +39,13 @@ public class SeektoCommand implements ServerCommand{
 			EmbedBuilder builder = new EmbedBuilder();
 			builder.setDescription("Der Song wurde auf " + args[1] + " Sekunden vorgespult");
 			builder.setColor(Color.decode("#f59542"));
-			channel.sendMessage(builder.build()).queue();
+			channel.sendMessageEmbeds(builder.build()).queue();
 		}
 		else {
 			EmbedBuilder builder = new EmbedBuilder();
 			builder.setDescription("Du kannst nicht über das Songende hinausspulen");
 			builder.setColor(Color.decode("#FF0000"));
-			channel.sendMessage(builder.build()).queue();
+			channel.sendMessageEmbeds(builder.build()).queue();
 		}
 			
 	}
