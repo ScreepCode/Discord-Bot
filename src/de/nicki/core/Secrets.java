@@ -3,7 +3,7 @@ package de.nicki.core;
 public class Secrets {
 
 	public  String getToken() {
-		String token = "[DISCORD APPLICATION TOKEN]";
+		String token = System.getenv("DisordBotToken");
 		return token; 
 	}
 }
