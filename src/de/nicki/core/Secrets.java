@@ -11,4 +11,9 @@ public class Secrets {
 		long id = 295965839713370123l;
 		return id;
 	}
+
+	public static long BotID(){
+		long id = 673672296296218624l;
+		return id;
+	}
 }
