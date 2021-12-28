@@ -2,30 +2,8 @@ package de.nicki.core;
 
 import java.util.concurrent.ConcurrentHashMap;
 
-import de.nicki.commands.BanCommand;
-import de.nicki.commands.ChangeStatusCommand;
-import de.nicki.commands.ClearCommand;
-import de.nicki.commands.HelpCommand;
-import de.nicki.commands.HugCommand;
-import de.nicki.commands.KickCommand;
-import de.nicki.commands.AmongUsCommand;
-import de.nicki.commands.PingCommand;
-import de.nicki.commands.PreviewCommand;
-import de.nicki.commands.ReactCommand;
-import de.nicki.commands.ReactRoleCommand;
-import de.nicki.commands.RoleCreationCommand;
-import de.nicki.commands.ServerCommand;
-import de.nicki.music.commands.LyricsCommand;
-import de.nicki.music.commands.PauseCommand;
-import de.nicki.music.commands.PlayCommand;
-import de.nicki.music.commands.QueueCommands;
-import de.nicki.music.commands.ResumeCommand;
-import de.nicki.music.commands.SeekCommand;
-import de.nicki.music.commands.SeektoCommand;
-import de.nicki.music.commands.SkipCommand;
-import de.nicki.music.commands.StopCommand;
-import de.nicki.commands.TestCommand;
-import de.nicki.commands.UmfrageCommand;
+import de.nicki.commands.*;
+import de.nicki.music.commands.*;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.TextChannel;
@@ -50,8 +28,9 @@ public class CommandManager {
 		this.commands.put("createrole", new RoleCreationCommand());
 		this.commands.put("umfrage", new UmfrageCommand());
 		this.commands.put("changestatus", new ChangeStatusCommand());
-		//this.commands.put("init", new InitialCommand());
-		this.commands.put("au", new AmongUsCommand());
+		// this.commands.put("init", new InitialCommand());
+		// this.commands.put("au", new AmongUsCommand());
+
 		
 		
 		//Musikfeature
