@@ -9,13 +9,12 @@ public class HugCommand implements ServerCommand {
 	@Override
 	public void performCommand(Member m, TextChannel channel, Message message) {
 		
-		if(m.getIdLong() != 561206675416023041l) {
+		// if(m.getIdLong() != 561206675416023041l) {
 			channel.sendMessage("Fühle dich Umarmt ^^").queue();
-		}
-		else {
-			channel.sendMessage("Jeder wird umarmt, nur du nicht xD").queue();
-		}
-		 
+		// }
+		// else {
+		// 	channel.sendMessage("Jeder wird umarmt, nur du nicht xD").queue();
+		// }
 
 	}
 
