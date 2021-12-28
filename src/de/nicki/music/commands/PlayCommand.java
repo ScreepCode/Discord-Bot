@@ -20,12 +20,7 @@ public class PlayCommand implements ServerCommand{
 
 	@Override
 	public void performCommand(Member m, TextChannel channel, Message message) {
-		
-		
-		if(m.getIdLong()==561206675416023041l||m.getIdLong()==683716339923419175l){
-			return;
-		}
-		
+				
 		String[] args = message.getContentDisplay().split(" ");
 		if(args.length > 1) {
 			GuildVoiceState state;
