@@ -30,8 +30,6 @@ public class Mainclass {
 	public AudioPlayerManager audioMan;
 	public PlayerManager playerMan;
 	
-	Secrets secret = new Secrets();
-	
 	public static void main(String[] args){
 		try {
 			new Mainclass();
@@ -48,7 +46,7 @@ public class Mainclass {
 		SQLite.connect();
 		SQLManager.onCreate();
 		
-		jda = JDABuilder.createDefault(secret.getToken()).build();
+		jda = JDABuilder.createDefault(Secrets.getToken()).build();
 		
 		jda.getPresence().setActivity(Activity.playing("mit deinem Gewissen ^^"));
 		jda.getPresence().setStatus(OnlineStatus.ONLINE);

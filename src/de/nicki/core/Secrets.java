@@ -2,8 +2,13 @@ package de.nicki.core;
 
 public class Secrets {
 
-	public  String getToken() {
+	public static String getToken() {
 		String token = System.getenv("DisordBotToken");
 		return token; 
+	}
+
+	public static long BotOwnerID(){
+		long id = 295965839713370123l;
+		return id;
 	}
 }
