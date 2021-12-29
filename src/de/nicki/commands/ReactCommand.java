@@ -52,6 +52,7 @@ public class ReactCommand implements ServerCommand{
 			} 
 			catch (Exception e) {
 				Mainclass.INSTANCE.logMan.errorLog("ReactCommand.performCommand()", e);
+				channel.sendMessage("Bitte Benutze: !react #channel message_id emotes").queue();
 			}
 		}
 		

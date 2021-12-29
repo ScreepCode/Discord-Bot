@@ -64,8 +64,9 @@ public class Mainclass {
 		try {
 			jda.awaitReady();
 			TempChannelListener.deleteChannels();
-		} catch (Exception e) {
-			Mainclass.INSTANCE.getLogMan().errorLog("Mainclass.TmpChannelListener",e);
+		} catch (Exception ignore) {
+			// Mainclass.INSTANCE.getLogMan().errorLog("Mainclass.TmpChannelListener",e); => You don't need to log this. 
+
 		}
 		
 		System.out.println("Bot Online");

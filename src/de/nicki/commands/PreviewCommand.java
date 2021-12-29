@@ -13,7 +13,13 @@ public class PreviewCommand implements ServerCommand{
 	public void performCommand(Member m, TextChannel channel, Message message) {
 		
 		//!preview 12 3  4
-		String mess = message.getContentRaw().substring(9);
+		String mess;
+		try {
+			mess = message.getContentRaw().substring(9);
+		}
+		catch (IndexOutOfBoundsException e) {
+			return;
+		}
 		
 		EmbedBuilder builder = new EmbedBuilder();
 		
