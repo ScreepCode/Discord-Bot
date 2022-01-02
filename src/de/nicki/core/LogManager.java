@@ -24,7 +24,13 @@ public class LogManager{
 		builder.setDescription("Fehlerart: " + e.toString() + "\n\n" + errorString);
 		builder.setColor(Color.red);
 		
-		jda.getTextChannelsByName("error_log", true).get(0).sendMessageEmbeds(builder.build()).queue();
+		try {
+			jda.getTextChannelsByName("error_log", true).get(0).sendMessageEmbeds(builder.build()).queue();
+		}
+		catch (IndexOutOfBoundsException ignore) {
+			System.out.println("Erstellen sie einen Channel mit dem Namen error_log um die Fehler dieses Bot über Discord zu bekommen");
+			System.out.println(errorString);
+		}
 		
 	}
 	
