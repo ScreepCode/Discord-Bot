@@ -32,11 +32,9 @@ public class ChangeStatusCommand implements ServerCommand{
 		else if(mess.equals("play")) {
 			jda.getPresence().setActivity(Activity.playing("mit deinem Gewissen ^^"));
 		}
-		else {
-			channel.sendMessage(mess + " ?").queue();
+		else{
+			channel.sendMessage("Bitte Benutze: `!changestatus [live/listen/play]`").queue();
 		}
-		
-		
-		
+
 	}
 }

@@ -18,9 +18,14 @@ public class UmfrageCommand implements ServerCommand{
 		
 		//args[0]	args[...]
 		//!umfrage <Text>
-		
-		
-		String mess = message.getContentRaw().substring(9);
+		String mess;
+		try{
+			mess = message.getContentRaw().substring(9);
+		}
+		catch (StringIndexOutOfBoundsException e){
+			channel.sendMessage("Bitte Benutze: `!umfrage <Text>`").queue();
+			return;
+		}
 		EmbedBuilder builder = new EmbedBuilder();
 		TextChannel tc = jda.getTextChannelsByName("umfragen", true).get(0);
 		String Username = "";

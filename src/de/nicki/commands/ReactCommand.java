@@ -26,8 +26,8 @@ public class ReactCommand implements ServerCommand{
 		String[] args = message.getContentDisplay().split(" ");
 		List<TextChannel> channels = message.getMentionedChannels();
 		List<Emote> emotes = message.getEmotes();
-		
-		if(!channels.isEmpty()) {
+
+		if(args.length >= 2) {
 			TextChannel tc = message.getMentionedChannels().get(0);
 			String messageIDString = args[2];
 						
@@ -52,8 +52,11 @@ public class ReactCommand implements ServerCommand{
 			} 
 			catch (Exception e) {
 				Mainclass.INSTANCE.logMan.errorLog("ReactCommand.performCommand()", e);
-				channel.sendMessage("Bitte Benutze: !react #channel message_id emotes").queue();
+				channel.sendMessage("Bitte Benutze: !react #channel message_id :emote:").queue();
 			}
+		}
+		else{
+			channel.sendMessage("Bitte Benutze: `!react #channel message_id :emote:`").queue();
 		}
 		
 	}

@@ -14,8 +14,6 @@ public class PingCommand implements ServerCommand  {
 		channel.getJDA().getRestPing().queue( (time) ->
 		channel.sendMessageFormat("Pong! %dms", time , gatewayping).queue());
 
-
-		
 	}
 
 }

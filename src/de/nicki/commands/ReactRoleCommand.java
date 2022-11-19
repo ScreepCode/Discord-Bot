@@ -57,7 +57,7 @@ public class ReactRoleCommand implements ServerCommand{
 			}
 		}
 		else {
-			channel.sendMessage("Bitte benutze `!reactrole #channel messageID :emote: @Rolle`").queue();
+			channel.sendMessage("Bitte Benutze: `!reactrole #channel messageID :emote: @Rolle`").queue();
 		}
 		
 	}

@@ -49,13 +49,9 @@ public class RoleCreationCommand implements ServerCommand{
 			}
 		}
 		else {
-			EmbedBuilder builder = new EmbedBuilder();
-			builder.setDescription("Bist du doof? !createrole <Name> <#Farbe>");
-			channel.sendMessageEmbeds(builder.build()).queue();
+			channel.sendMessage("Benutze Bitte: `!createrole <Name> <#Farbe>`").queue();
 		}
-			
-		
-		
+
 	}
 
 }

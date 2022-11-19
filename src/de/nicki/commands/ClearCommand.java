@@ -36,6 +36,9 @@ public class ClearCommand implements ServerCommand{
 					e.printStackTrace();
 				}
 			}
+			else{
+				channel.sendMessage("Bitte Benutze: `!clear <Amount>`").queue();
+			}
 		}
 	}
 

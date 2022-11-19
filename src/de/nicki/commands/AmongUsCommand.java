@@ -19,20 +19,22 @@ public class AmongUsCommand implements ServerCommand {
 			String mess = message.getContentDisplay().split(" ")[1];
 			VoiceChannel vc =  jda.getVoiceChannelById(785185434014973973l);
 			
-			System.out.println(mess);
-			
 			if(mess.equals("m")) {
 				for(Member member: vc.getMembers()) {
 					member.mute(true).queue();
+					message.delete().queue();
 				}
 			}
 			
-			if(mess.equals("u")) {
+			else if(mess.equals("u")) {
 				for(Member member: vc.getMembers()) {
 					member.mute(false).queue();
+					message.delete().queue();
 				}
 			}
-			message.delete().queue();
+			else{
+				channel.sendMessage("Bitte Benutze: `!au [m/u]`").queue();
+			}
 		}
 		else {
 			message.delete().queue();

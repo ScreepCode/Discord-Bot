@@ -18,6 +18,7 @@ public class PreviewCommand implements ServerCommand{
 			mess = message.getContentRaw().substring(9);
 		}
 		catch (IndexOutOfBoundsException e) {
+			channel.sendMessage("Bitte Benutze: `!preview <Text>`").queue();
 			return;
 		}
 		

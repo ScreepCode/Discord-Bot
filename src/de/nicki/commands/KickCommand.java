@@ -22,7 +22,7 @@ public class KickCommand implements ServerCommand {
 			List<Member> mentionedMembers = message.getMentionedMembers();
 			
 			if(mentionedMembers.isEmpty()) {
-				System.out.println("Keine Genannt");
+				channel.sendMessage("Bitte Benutze: `!kick @Member`").queue();
 				return;
 			}
 

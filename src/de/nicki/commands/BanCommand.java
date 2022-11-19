@@ -23,6 +23,7 @@ public class BanCommand implements ServerCommand {
 			
 			if(mentionedMembers.isEmpty()) {
 				System.out.println("Keine Genannt");
+				channel.sendMessage("Bitte Benutze: `!ban @Member`").queue();
 				return;
 			}
 

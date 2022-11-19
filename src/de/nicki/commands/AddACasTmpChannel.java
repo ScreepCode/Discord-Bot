@@ -24,6 +24,7 @@ public class AddACasTmpChannel implements ServerCommand{
                             channel.getGuild().getIdLong() + ", " + channelID + ")");
         } catch (Exception e) {
             Mainclass.INSTANCE.logMan.errorLog("AddACasTmpChannel.performCommand()", e);
+            channel.sendMessage("Bitte Benutze: `!addacastc #channel`").queue();
         }
     }
     
