@@ -31,6 +31,7 @@ public class CommandManager {
 		// this.commands.put("init", new InitialCommand());
 		// this.commands.put("au", new AmongUsCommand());
 		this.commands.put("addacastc", new AddACasTmpChannel());
+		this.commands.put("info", new InfoCommand());
 		
 		
 		//Musikfeature

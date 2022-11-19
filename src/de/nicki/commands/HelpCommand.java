@@ -34,6 +34,6 @@ public class HelpCommand implements ServerCommand{
 			builder.setColor(Color.decode("#00b5cc"));
 			channel.sendMessageEmbeds(builder.build()).queue();
     	
-        }
-    }
+	}
+}
 
