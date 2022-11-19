@@ -23,7 +23,7 @@ public class LogManager{
 		builder.setTitle("Fehler bei: " + location);
 		builder.setDescription("Fehlerart: " + e.toString() + "\n\n" + errorString);
 		builder.setColor(Color.red);
-		
+
 		try {
 			jda.getTextChannelsByName("error_log", true).get(0).sendMessageEmbeds(builder.build()).queue();
 		}
@@ -31,7 +31,7 @@ public class LogManager{
 			System.out.println("Erstellen sie einen Channel mit dem Namen error_log um die Fehler dieses Bot über Discord zu bekommen");
 			System.out.println(errorString);
 		}
-		
+
 	}
 	
 	public void triggerError() {
