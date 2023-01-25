@@ -21,7 +21,7 @@ public class ReactionListener extends ListenerAdapter{
 
 				ResultSet setPre = SQLite.onQuery("SELECT messageid FROM reactroles WHERE guildid = " + event.getGuild().getIdLong());
 				try {
-					if(setPre.next()) {
+					while(setPre.next()) {
 						long messIdDB = setPre.getLong("messageid");
 
 						if(messIdDB == event.getMessageIdLong()){
@@ -51,7 +51,8 @@ public class ReactionListener extends ListenerAdapter{
 							
 							} catch (Exception e) {
 								Mainclass.INSTANCE.getLogMan().errorLog("ReactionListener.onMessageReactionAdd()", e);
-							}			
+							}
+							break;
 						}	
 					}
 				}
@@ -70,7 +71,7 @@ public class ReactionListener extends ListenerAdapter{
 
 				ResultSet setPre = SQLite.onQuery("SELECT messageid FROM reactroles WHERE guildid = " + event.getGuild().getIdLong());
 				try {
-					if(setPre.next()) {
+					while (setPre.next()) {
 						long messIdDB = setPre.getLong("messageid");
 
 						if(messIdDB == event.getMessageIdLong()){
@@ -99,6 +100,7 @@ public class ReactionListener extends ListenerAdapter{
 							} catch (Exception e) {
 								Mainclass.INSTANCE.getLogMan().errorLog("ReactionListener.onMessageReactionRemove()", e);
 							}
+							break;
 						}
 					}
 				}
